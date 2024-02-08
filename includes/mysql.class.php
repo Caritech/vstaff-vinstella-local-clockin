@@ -5,7 +5,7 @@ class mysql{
 		echo $sMessage;
 	}
 	function query($query){
-		$dbhost = 'localhost';
+		$dbhost = '127.0.0.1';
 		$dbusername = 'root';
 		$dbpassword = '';
 		$dbname='vstaff';
@@ -14,7 +14,7 @@ class mysql{
 		return $query;
 	}
 	function close(){
-		$dbhost = 'localhost';
+		$dbhost = '127.0.0.1';
 		$dbusername = 'root';
 		$dbpassword = '';
 		$dbname='vstaff';
