@@ -1,0 +1,13 @@
+Hi, i am weishen from vstaff. 
+Here i will introduce something that will help you more understanding on using this time in and out web.
+As you can see the chrome i bookmarked the "vstaff clock in/out" for u guys.
+Just click it and access your login id and password (same as vstaff.my) and u can use it to time in and out.
+
+If got new staff/ password changes in vstaff.com, run this file "ClickHereUpdateLogin.bat - Shortcut" at desktop
+it will download the live data into this desktop.
+
+"http://localhost/vinstella/index.php" this is the web that allows you to time in and time out 
+it records the time in and out. 
+If "localhost/vinstella/index.php" can't access and it returns "This site can't be reached", please check the xampp program where the actions of Apache and MySQL module, these two must be start. Then you can access the web to time in and out.
+
+I set some program that will execute the command prompt to update the time in and out into live server. 
