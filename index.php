@@ -4,13 +4,13 @@ session_destroy();
 session_unset();
 error_reporting(E_ALL ^ E_NOTICE);
 ?>
-<title>vstaff login</title>
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
-<link type="image/x-icon" href="images/waffles_favicon.ico" rel="shortcut icon" />
-<link type="text/css" href="includes/jquery-ui-1.11.4/jquery-ui-1.11.4/jquery-ui.css" rel="Stylesheet" />
-<script type="text/javascript" src="includes/jquery-ui-1.11.4/jquery-ui-1.11.4/external/jquery/jquery.js"></script>
-<script type="text/javascript" src="includes/jquery-ui-1.11.4/jquery-ui-1.11.4/jquery-ui.js"></script>
-<link rel="stylesheet" href="includes/font-awesome/css/font-awesome.min.css">
+
+<?php include(__DIR__ . '/bootstrap/app.php') ?>
+<?php $tt = "vStaff Login"; ?>
+<?php include(__DIR__ . '/includes/vstaff_meta.php') ?>
+
+
+
 <style>
     .noselect,
     #radio,
@@ -44,7 +44,7 @@ error_reporting(E_ALL ^ E_NOTICE);
         background: -moz-linear-gradient(#4d4d4d, #272727, #272727, #4d4d4d);
         background: linear-gradient(#4d4d4d, #272727, #272727, #4d4d4d);
     }
-    }
+
 
     .sign_in {
         margin-top: 29px;
@@ -174,56 +174,46 @@ error_reporting(E_ALL ^ E_NOTICE);
     .red_b {
         border: 1px solid red !important;
     }
-
-    body {
-        display: none;
-    }
 </style>
-<script>
-    $(document).ready(function() {
-        $("body").css("display", "none");
-        $("body").fadeIn(600);
-        $('body').on('click', '#click_remember_me', function() {
-            if ($('#chk_remember').prop('checked')) {
-                $('#chk_remember').prop('checked', false);
-            } else {
-                $('#chk_remember').prop('checked', true);
-            }
-        });
-    });
-</script>
-<div class="login_page_row1">
-    <div>
-        <img src="images/vstaff_logo_fit_header.jpg" width="170px;">
+
+<div class="container text-center" style="max-width:700px;">
+    <div class="my-5 ">
+        <img src="images/vstaff_logo_long.png" height="80px;">
+    </div>
+
+    <form name="login" method="post" action="check_chg_pwd.php">
+        <div class="card">
+            <div class="card-header text-white py-3 m_c">
+                <div class="text-start ">
+                    <i class="fa fa-lock"></i> Login
+                </div>
+            </div>
+            <div class="card-body">
+
+                <div class="my-3">
+                    <img src="<?= ENV::LOGIN_PAGE_LOGO ?>" height="80px;" class="rounded">
+                </div>
+
+                <div class="my-2">
+                    <span class="b red"><?= $_GET['details'] ?? ''; ?></span>
+                </div>
+
+                <div class="d-flex flex-column justify-content-center align-items-center">
+                    <div class="my-1">
+                        <input type="text" value="<?= trim($_GET['uid'] ?? '') ?>" name="id" placeholder="Enter your username" class="form-control" autofocus>
+                    </div>
+                    <div class="my-1">
+                        <input type="password" value="<?= trim($_GET['pwd'] ?? '') ?>" name="password" placeholder="Enter your password" class="form-control">
+                    </div>
+                </div>
+                <button type="submit" name="btnLogin" class="login_btn m_c noselect c_btn btn">
+                    <i class="fa fa-sign-in"></i>
+                    Login
+                </button>
+            </div>
+        </div>
+    </form>
+    <div style="font-size:12px;color:gray;text-align:center;">
+        vStaff © <?= date('Y') ?> Allstaff All Rights Reserved.
     </div>
 </div>
-<form name="login" method="post" action="check_chg_pwd.php">
-
-    <div class="sign_in">
-        <div class="box_header m_c">
-            <div class="sign_in_title">
-                <i class="fa fa-lock"></i>
-            </div>
-        </div>
-        <div class="center-div">
-            <div class="login_icon m_c" style="padding-bottom:2px;">
-                <i class="fa fa-user fa-4x" style="color:white;"></i>
-            </div>
-            <br>
-            <span class="b red"><?= $_GET['details'] ?? ''; ?></span>
-            <br>
-            <input type="text" value="<?=trim($_GET['uid']??'')?>" name="id" placeholder="Enter your username" autofocus>
-            <br>
-            <input type="password" value="<?= trim($_GET['pwd']??'')?>" name="password" placeholder="Enter your password">
-            <br>
-            <div style="padding-bottom:20px;"></div>
-            <input type="submit" value="&#xf090  Login" name="btnLogin" class="login_btn m_c noselect c_btn btn">
-
-            <br><br>
-            <!--<div style="float:right;padding-right:90px;">
-			<a href="fpwd_vstaff2.php" class="a">Forgot Password</a>
-		</div>-->
-        </div>
-    </div>
-    <br>
-</form>

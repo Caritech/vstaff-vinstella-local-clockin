@@ -1,1 +1,0 @@
-C:\xampp2\php\php.exe C:\xampp2\htdocs\Vinstella\get_login_access.php

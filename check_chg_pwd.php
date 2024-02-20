@@ -1,5 +1,5 @@
 <?php 
-include "includes/mysql.class.php";
+include(__DIR__ . '/bootstrap/app.php');
 $db = new mysql();
 $password_wrong_message = 'Wrong id or password or access denied, kindly contact HR department.';
 if(trim($_POST['id']) != "" && trim($_POST['password']) != ""){
