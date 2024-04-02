@@ -1,5 +1,5 @@
 <?php 
-include "includes/classes/mysql.class.php";
+include "bootstrap/app.php";
 $db = new mysql();
 $sql_check = '
 	SELECT emp_code, LOGIN_ID, NAME, PASSWORD
