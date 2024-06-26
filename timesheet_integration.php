@@ -29,7 +29,7 @@ while (strtotime($last_week_date) <= strtotime($today_date)){
         ";
 
         $data = '&emp_code='.$row['emp_code'].'&emp_name='.$row['emp_name'].'&date='.$row['date'].'&time='.$row['time'].'&branch='.$row['branch'].'&action='.$row['action'];
-        $url = ENV::API_FILE_URL;
+        $url = ENV::API_URL.'/get_timesheet_integration_weishen.php';
 
         $ch = curl_init();
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
